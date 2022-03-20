@@ -8,7 +8,7 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
-  "physicsObject": true,
+  "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
   "physicsGroup": 1,
@@ -33,7 +33,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Object8",
+  "name": "Static",
   "tags": [],
   "resourceType": "GMObject",
 }
