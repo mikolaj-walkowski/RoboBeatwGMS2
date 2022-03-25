@@ -5,15 +5,15 @@
 
 state = moving; 
 
-velo_v = 10;
-velo = 300;
+velo_v = 600;
+velo = 200;
 
-dash_velo = 50;
+dash_velo = 1000;
 dash_cnt = 1;
 dash_start_xvel = 0;
 dash_start_yvel = 0;
 dash_start = 0;
-dash_dur = 20;
+dash_dur = 150;
 
 grav = 10;
 c_vel_x = 0;
