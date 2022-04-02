@@ -29,6 +29,7 @@
     {"id":{"name":"sGhost","path":"sprites/sGhost/sGhost.yy",},"order":0,},
     {"id":{"name":"sGhostShadow","path":"sprites/sGhostShadow/sGhostShadow.yy",},"order":1,},
     {"id":{"name":"sCollisions","path":"sprites/sCollisions/sCollisions.yy",},"order":0,},
+    {"id":{"name":"newtileset_2","path":"sprites/newtileset_2/newtileset_2.yy",},"order":21,},
     {"id":{"name":"sGrassTiles","path":"sprites/sGrassTiles/sGrassTiles.yy",},"order":1,},
     {"id":{"name":"sSandTiles","path":"sprites/sSandTiles/sSandTiles.yy",},"order":2,},
     {"id":{"name":"tGrass","path":"tilesets/tGrass/tGrass.yy",},"order":0,},
