@@ -62,7 +62,7 @@ switch(movment){
 		}
 		break;
 	case dash:
-	if(dash_start + dash_dur >= current_time){
+	if(dash_start + dash_dur < current_time){
 			c_vel_x = velo_h * dash_dir_x;
 			c_vel_y = velo_v * dash_dir_y;
 			
