@@ -157,7 +157,7 @@
     "path": "folders/Tile Sets.yy",
   },
   "resourceVersion": "1.0",
-  "name": "TileSetCave",
+  "name": "TileSet1",
   "tags": [],
   "resourceType": "GMTileSet",
 }
