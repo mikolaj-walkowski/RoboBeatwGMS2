@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "MechanicObjcets",
+    "path": "folders/Objects/MechanicObjcets.yy",
   },
   "resourceVersion": "1.0",
   "name": "oDynamic",

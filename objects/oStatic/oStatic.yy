@@ -1,16 +1,13 @@
 {
   "spriteId": {
-    "name": "Sprite31",
-    "path": "sprites/Sprite31/Sprite31.yy",
+    "name": "sStaticDeb",
+    "path": "sprites/sStaticDeb/sStaticDeb.yy",
   },
   "solid": true,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "oDynamic",
-    "path": "objects/oDynamic/oDynamic.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -35,8 +32,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "MechanicObjcets",
+    "path": "folders/Objects/MechanicObjcets.yy",
   },
   "resourceVersion": "1.0",
   "name": "oStatic",
