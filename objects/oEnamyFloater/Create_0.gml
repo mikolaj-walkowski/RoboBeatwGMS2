@@ -7,11 +7,14 @@ event_inherited();
 current_state = flags;
 velo = 50;
 
+hp = 3;
 
 enum FloaterState{
 	CHASE,
 	CLAW_ATTACK,
-	PATROL
+	PATROL,
+	HIT,
+	DEAD
 }
 
 movment = FloaterState.PATROL;

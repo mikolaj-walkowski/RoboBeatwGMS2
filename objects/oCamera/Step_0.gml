@@ -17,16 +17,16 @@ if(global.player.y - centerY > projHeight/8 || global.player.y - centerY < - pro
 	}
 }
 
-if(global.player.x + projWidth/2 > room_width || global.player.x - projWidth/2 < 0){
-	if(global.player.x + projWidth/2 > room_width){
+if(centerX + projWidth/2 > room_width || centerX - projWidth/2 < 0){
+	if(centerX + projWidth/2 > room_width){
 		centerX = room_width - projWidth/2;
 	}else{
 		centerX = projWidth/2;
 	}
 }
 
-if(global.player.y + projHeight/2 > room_height || global.player.y - projHeight/2 < 0){
-	if(global.player.y + projHeight/2 > room_height){
+if(centerY + projHeight/2 > room_height || centerY - projHeight/2 < 0){
+	if(centerY + projHeight/2 > room_height){
 		centerY = room_height - projHeight/2;
 	}else{
 		centerY = projHeight/2;
