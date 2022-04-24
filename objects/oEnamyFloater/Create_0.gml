@@ -10,9 +10,14 @@ velo = 50;
 
 enum FloaterState{
 	CHASE,
-	CLAW_ATTACK
+	CLAW_ATTACK,
+	PATROL
 }
 
-movment = FloaterState.CHASE;
-
+movment = FloaterState.PATROL;
+patrolRadius = 250;
+patrolDurr = 2000;
+patrolStart = 0;
+patrolDirX = 1;
+patrolDirY = 0;
 dealtDMG=false;

@@ -18,7 +18,6 @@ x = xprevious + dx;
 y = yprevious + dy;
 
 //Obracam sprit-a obiektu w zależności od kierunku w którym się porusza
-image_xscale = sign(c_vel_x) != 0 ? -sign(c_vel_x) : image_xscale;
 
 //Dynamic Collisons - Just bounce off
 //It will brake for movment faster than (s/2)/dT  
@@ -102,4 +101,10 @@ if(!place_empty(xprevious,y,oStatic)){
 }
 
 
+if(sign(c_vel_x) != 0){
+	image_xscale = -sign(c_vel_x);
+	if (! place_empty(x,y)){
+		image_xscale *= -1;
+	}
+}
 

@@ -6,6 +6,7 @@
 switch(movment){
 	case FloaterState.CHASE: Floater_CHASE(); break;
 	case FloaterState.CLAW_ATTACK: Floater_CLAW_ATTACK(); break;
+	case FloaterState.PATROL: Floater_PATROL(); break;
 }
 
 event_inherited();

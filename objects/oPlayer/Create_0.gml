@@ -8,7 +8,8 @@ global.player = object_index;
 enum PlayerState{
 	NORMAL,
 	DASH,
-	DEAD
+	DEAD,
+	HIT
 }	
 
 movment = PlayerState.NORMAL; 

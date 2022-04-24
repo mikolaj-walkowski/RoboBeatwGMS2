@@ -1,13 +1,13 @@
 {
   "spriteId": {
-    "name": "sIdleFloater",
-    "path": "sprites/sIdleFloater/sIdleFloater.yy",
+    "name": "sFloaterIdle",
+    "path": "sprites/sFloaterIdle/sFloaterIdle.yy",
   },
   "solid": true,
   "visible": true,
   "spriteMaskId": {
-    "name": "sIdleFloater",
-    "path": "sprites/sIdleFloater/sIdleFloater.yy",
+    "name": "sFloaterChase",
+    "path": "sprites/sFloaterChase/sFloaterChase.yy",
   },
   "persistent": false,
   "parentObjectId": {
