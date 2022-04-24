@@ -1,8 +1,6 @@
 var _dt = delta_time / 1000000;
 
 
-if(hp <= 0) instance_destroy();
-
 
 if(current_state&f_gravity!=0){ 
 	c_vel_y += g*_dt;

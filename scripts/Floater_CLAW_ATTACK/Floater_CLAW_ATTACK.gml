@@ -6,10 +6,11 @@ function Floater_CLAW_ATTACK(){
 	sprite_index = sClawFloater;
 	
 	mask_index = mClawFloater;
-	if(place_meeting(x,y,oPlayer)&&!dealtDMG){
+	if(place_meeting(x,y,global.player)&&!dealtDMG){
 		dealtDMG=true;
-		oPlayer.hp--;
-		show_debug_message(oPlayer.hp);
+		global.player.hp--;
+		show_debug_message(global.player.hp);
+		global.player.lastHitT = current_time;
 	}
 	mask_index=sClawFloater;
 	

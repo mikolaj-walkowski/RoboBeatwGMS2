@@ -5,6 +5,8 @@
 
 var _dt = delta_time / 1000000;
 
+if(hp <= 0) movment = PlayerState.DEAD;
+
 //przechwytywanie klawiatury
 left = keyboard_check(ord("A"))
 right = keyboard_check(ord("D"))
@@ -31,7 +33,7 @@ h2 = gamepad_axis_value(0, gp_axislv);
 vdir_dash = h2 > 0.15 || h2 < -0.15 ? h2 : 0;
 vdir_dash += down - up;
 
-dash_dir_len = abs(vdir_dash) + abs(hdir);
+dash_dir_len = sqrt(vdir_dash*vdir_dash + hdir*hdir);
 
 dash_cnt = touching_b == 1 ? 1 : dash_cnt;
 
@@ -47,11 +49,12 @@ switch(movment){
 			//Zapamiętuje prędkość startową
 			dash_dir_x = hdir/dash_dir_len;
 			dash_dir_y = vdir_dash/dash_dir_len;
-	
+			//angle = arctan(dash_dir_x/dash_dir_y)
+			//part_type_orientation(global.pPlayerDash,angle,angle,0,0,false);
 			//Nadaje prędkość na czas dasz-a 
 			c_vel_x = dash_dir_x * dash_velo;
 			c_vel_y = dash_dir_y * dash_velo;
-	
+		
 			
 			//Pomniejszam ilość dostępnych daszy
 			dash_cnt-=1;
@@ -61,6 +64,8 @@ switch(movment){
 		}
 		break;
 	case PlayerState.DASH:
+	//part_emitter_region(global.P_system,dashEmmiter,x-30,x+30,y-30,y+30,ps_shape_rectangle,ps_distr_gaussian);
+	//part_emitter_burst(global.P_system,global.pPlayerDash,dashEmmiter,5+irandom(5));
 	if(dash_start + dash_dur < current_time){
 			c_vel_x = velo_h * dash_dir_x;
 			c_vel_y = velo_v * dash_dir_y;
@@ -68,6 +73,9 @@ switch(movment){
 			movment = PlayerState.NORMAL;
 			current_state |= f_gravity;
 	}
+	break;
+	case PlayerState.DEAD:
+	
 	break;
 }
 
