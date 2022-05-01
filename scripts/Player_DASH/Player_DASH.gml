@@ -6,8 +6,9 @@ function Player_DASH(){
 	if(dash_start + dash_dur < current_time){
 		c_vel_x = velo_h * dash_dir_x;
 		c_vel_y = velo_v * dash_dir_y;
+		i_vel_x = velo_v * dash_dir_x;
 			
 		movment = PlayerState.NORMAL;
-		current_state |= f_gravity;
+		current_state |= (f_gravity | f_xaccel);
 	}
 }

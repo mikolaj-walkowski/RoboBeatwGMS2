@@ -1,70 +1,85 @@
 var _dt = delta_time / 1000000;
 
-touching_b =0;
+// Fragmen odpowiedzialny za acceleracje w osi ox
+// W założeniu powinien pozwolić graczowi na większą kontole 
+if(current_state&f_xaccel!=0){
+	//W tym przypadku uznajemy c_vel_x jako kierunek ruchu i ignorujemy jego wartość
+	c_vel_x = sign(c_vel_x);
+	//Wyznaczam maksymalną prędkość ruchu w oX (zmiejszona o połowe w powietrzu żeby lekko utrudnić movment)
+	var top = touching_b==1 ? top_v_x : top_v_x *0.5;
+	//Przyśpieszenie oX (zmiejszone o połowe w powietrzu żeby lekko utrudnić movment)
+	var a = touching_b==1 ? a_x : a_x *0.5;
+	if(c_vel_x*i_vel_x >= 0) //Jeżeli kierunek w którym chce się poruszć jest zgodny z obecnym kierunkiem ruchu albo chce się zatrzymać
+		i_vel_x = approach(i_vel_x,c_vel_x*top,a*_dt);
+	else //Jeżeli chce zmienić kierunek ruchu 
+		i_vel_x = approach(i_vel_x,c_vel_x*top,a*_dt*2);
+}else{
+	// Jeżeli flaga nie jest aktywna poprostu przypisuje zwykła wartość
+	i_vel_x = c_vel_x;
+}
+
 
 if(current_state&f_gravity!=0){ 
 	c_vel_y += g*_dt;
 }
+
 if(current_state&f_friction!=0){
-	c_vel_x *= fric_cof*_dt;
+	i_vel_x *= fric_cof*_dt;
 }
 
 //Wartości o które, zmieniamy pozycje
-var dx = c_vel_x*_dt;
+var dx = i_vel_x*_dt;
 var dy = c_vel_y*_dt;
-
 //Końcowe pozycje
 x = xprevious + dx;
 y = yprevious + dy;
 
-//Obracam sprit-a obiektu w zależności od kierunku w którym się porusza
-
 //Dynamic Collisons - Just bounce off
-//It will brake for movment faster than (s/2)/dT  
+//It will brake for movment faster than (s/2)/dT
+touching_b = 0;
 
 collidedWith = ds_list_create();
 
 var size = instance_place_list(x,y, oDynamic,collidedWith,false);
 for(var i = 0; i < size ; i++){
+	
 	var oth = collidedWith[|i];
 	
-	if(place_meeting(x,yprevious,oth)){
-	//Jeżeli zachodzi to sprawdzam dla pozycji o 0.1 mniejszej, ogólnie kiedyś to warto przyśpieszyć binsearch-em.
-	for(var i = 10; place_meeting(x,yprevious,oth) ; i-=1){
-		var in_dx = dx/10;
-		x = xprevious + in_dx*i;
-	}
-	//Zawsze po kolizj zależnej od dX zeruje prędkość x
-	}
-	if(place_meeting(xprevious,y,oth)){
-	//Jeżeli zachodzi to sprawdzam dla pozycji o 0.1 mniejszej, ogólnie kiedyś to warto przyśpieszyć binsearch-em.
-		for(var i = 10; place_meeting(xprevious,y,oth) ; i-=1){
-			var in_dy = dy/10 ;
-			y = yprevious + in_dy*i;
-		}
-	}
-	
-	//From other to current
-	
+	// Narazie to wektor w kierunku kolidującego (nie unormowany, teoretycznie powinnien być unormowany)
 	var d_x = -sign(oth.x - x);
 	var d_y = -sign(oth.y - y);
 	
+	if(place_meeting(x,yprevious,oth)){
+	//Jeżeli zachodzi to sprawdzam dla pozycji o 0.1 mniejszej, ogólnie kiedyś to warto przyśpieszyć binsearch-em.
+	for(var i = 10; place_meeting(x,yprevious,oth) && i>0; i-=1){
+		var in_dx = dx/10;
+		x = xprevious + in_dx*i;
+	}
+	x += d_x*safeDist;
+	}
+	if(place_meeting(xprevious,y,oth)){
+	//Jeżeli zachodzi to sprawdzam dla pozycji o 0.1 mniejszej, ogólnie kiedyś to warto przyśpieszyć binsearch-em.
+		for(var i = 10; place_meeting(xprevious,y,oth) && i>0 ; i-=1){
+			var in_dy = dy/10 ;
+			y = yprevious + in_dy*i;
+		}
+		y += d_y*safeDist;
+	}
+	
+	//Zeruje prędkości w zależności w kierunku zderzenia + w przysłości powinniśmy przerobić to tak żeby uwzględniało pędy
 	var d_v1_x = oth.c_vel_x*-d_x > 0 ? oth.c_vel_x: 0;
 	var d_v1_y = oth.c_vel_y*-d_y > 0 ? oth.c_vel_y: 0;
 
-	var d_v2_x = c_vel_x*d_x > 0 ? c_vel_x: 0;
+	var d_v2_x = i_vel_x*d_x > 0 ? i_vel_x: 0;
 	var d_v2_y = c_vel_y*d_y > 0 ? c_vel_y: 0;
 	
 	oth.c_vel_x = d_v1_x;
 	oth.c_vel_y = d_v1_y;
 
-	c_vel_x = d_v2_x;
+	i_vel_x = d_v2_x;
 	c_vel_y = d_v2_y;
 	
 	touching_b = c_vel_y == 0 ? 1:0;
-	
-	//x += d_x*safeDist;
-	//y += d_y*safeDist;
 	
 	//oth.x -= d_x*safeDist;
 	//oth.y -= d_y*safeDist;
@@ -82,7 +97,7 @@ if( !place_empty(x,yprevious,oStatic)){
 		x = xprevious + in_dx*i;
 	}
 	//Zawsze po kolizj zależnej od dX zeruje prędkość x
-	c_vel_x =0;
+	i_vel_x =0;
 }
 
 
@@ -100,7 +115,7 @@ if(!place_empty(xprevious,y,oStatic)){
 	c_vel_y=0;
 }
 
-
+//Obracam sprit-a obiektu w zależności od kierunku w którym się porusza
 if(sign(c_vel_x) != 0){
 	image_xscale = -sign(c_vel_x);
 	if (! place_empty(x,y)){

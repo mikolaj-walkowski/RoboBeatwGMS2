@@ -3,7 +3,7 @@
     "name": "sStaticDeb",
     "path": "sprites/sStaticDeb/sStaticDeb.yy",
   },
-  "solid": true,
+  "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,

@@ -11,6 +11,8 @@ function Floater_CHASE(){
 	if(abs(dir_x) < 25 && abs(dir_y)<10){
 		movment = FloaterState.CLAW_ATTACK;
 		image_index = 0;
+		c_vel_x = 0;
+		c_vel_y = 0;
 		return;
 	}
 

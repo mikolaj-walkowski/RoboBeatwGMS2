@@ -9,7 +9,7 @@ function Player_HIT(){
 		if(image_index+_spd >= sprite_get_number(sprite_index)){
 			movment = PlayerState.NORMAL;
 			sprite_index =sPlayer;
-		}
+		}	
 	}else{
 		sprite_index = sPlayerHit;
 		image_index = 0;

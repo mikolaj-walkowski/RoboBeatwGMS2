@@ -3,8 +3,8 @@
 function Floater_CLAW_ATTACK(){
 	c_vel_x = 0;
 	c_vel_y = 0;
-	sprite_index = sFloaterClaw;
 	
+	sprite_index = sFloaterClaw;
 	mask_index = mFloaterClaw;
 	if(place_meeting(x,y,global.player)&&!dealtDMG){
 		dealtDMG=true;

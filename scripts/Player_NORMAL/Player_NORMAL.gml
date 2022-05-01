@@ -24,34 +24,35 @@ function Player_NORMAL(_dt){
 
 	//Ustalanie kierunku w poziomie dla dasza
 	h2 = gamepad_axis_value(0, gp_axislv);
-
 	vdir_dash = h2 > 0.15 || h2 < -0.15 ? h2 : 0;
 	vdir_dash += down - up;
-
-	dash_dir_len = sqrt(vdir_dash*vdir_dash + hdir*hdir);
-
 	
-	c_vel_x = touching_b == 1 ? velo_h*hdir : (abs(c_vel_x) < 300 ? c_vel_x+_dt*velo_h*hdir : c_vel_x);
+	c_vel_x = velo_h*hdir;//touching_b == 1 ? velo_h*hdir : (abs(c_vel_x) < 300 ? c_vel_x+_dt*velo_h*hdir : c_vel_x);
 	c_vel_y += touching_b == 1 ? velo_v*vdir : 0;
-		
-
-	if(dash_btn == 1 && dash_cnt > 0 && dash_dir_len != 0){
 	
-		//Zapamiętuje prędkość startową
+	g = jump_normal;
+	
+	if(vdir<0 && c_vel_y <= 0)
+		g = jump_hold;
+		
+	if(c_vel_y > 0)
+		g = jump_fall;
+
+	if(dash_btn == 1 && dash_cnt > 0 && (hdir!=0 || vdir_dash !=0)){
+		
+		var dash_dir_len = sqrt(vdir_dash*vdir_dash + hdir*hdir);
+		
 		dash_dir_x = hdir/dash_dir_len;
 		dash_dir_y = vdir_dash/dash_dir_len;
-		//angle = arctan(dash_dir_x/dash_dir_y)
-		//part_type_orientation(global.pPlayerDash,angle,angle,0,0,false);
 		//Nadaje prędkość na czas dasz-a 
 		c_vel_x = dash_dir_x * dash_velo;
 		c_vel_y = dash_dir_y * dash_velo;
 		
-			
 		//Pomniejszam ilość dostępnych daszy
 		dash_cnt-=1;
 		dash_start = current_time; 
 		movment = PlayerState.DASH;			
-		current_state &= !f_gravity;
+		current_state &= !(f_gravity|f_xaccel);
 	}
 	
 	if(attack_btn ==1){

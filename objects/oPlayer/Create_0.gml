@@ -18,14 +18,18 @@ movment = PlayerState.NORMAL;
 velo_v = 300;
 velo_h = 200;
 
-dash_velo = 1000;
+jump_hold = g;
+jump_normal = 2.5*g;
+jump_fall = 3*g;
+
+dash_velo = 750;
 dash_cnt = 2;
 dash_dir_x = 0;
 dash_dir_y = 0;
 dash_start = 0;
-dash_dur = 150;
+dash_dur =  150;
 
-current_state = (f_gravity|f_as)
+current_state = (f_gravity|f_xaccel)
 
 //Particle Mby
 

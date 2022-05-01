@@ -6,6 +6,7 @@ event_inherited();
 
 current_state = flags;
 velo = 50;
+top_v_x = 50;
 
 hp = 3;
 

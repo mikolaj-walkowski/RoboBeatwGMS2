@@ -13,13 +13,20 @@ function Player_ATTACK(_dt){
 	hdir += h1;
 	hdir += right - left;
 
-
 	vdir = 0;
 	vdir += gamepad_button_check(0,gp_face2)- gamepad_button_check(0,gp_face1)
 	vdir += down - up;
 	
-	c_vel_x = touching_b == 1 ? velo_h*hdir : (abs(c_vel_x) < 300 ? c_vel_x+_dt*velo_h*hdir : c_vel_x);
+	c_vel_x = velo_h*hdir;//touching_b == 1 ? velo_h*hdir : (abs(c_vel_x) < 300 ? c_vel_x+_dt*velo_h*hdir : c_vel_x);
 	c_vel_y += touching_b == 1 ? velo_v*vdir : 0;
+	
+	g = jump_normal;
+	
+	if(vdir<0 && c_vel_y <= 0)
+		g = jump_hold;
+		
+	if(c_vel_y > 0)
+		g = jump_fall;
 		
 	if(sprite_index == sPlayerAttack){
 		mask_index = mPlayerAttack;
