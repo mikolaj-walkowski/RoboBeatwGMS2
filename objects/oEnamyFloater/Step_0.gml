@@ -2,7 +2,6 @@
 // You can write your code in this editor
 
 // Inherit the parent event
-if(hp <= 0) movment = FloaterState.DEAD;
 
 switch(movment){
 	case FloaterState.CHASE: Floater_CHASE(); break;

@@ -30,7 +30,7 @@ function Player_NORMAL(_dt){
 	dash_dir_len = sqrt(vdir_dash*vdir_dash + hdir*hdir);
 
 	
-	c_vel_x = touching_b == 1 ? velo_h*hdir : (abs(c_vel_x) < 200 ? c_vel_x+_dt*velo_h*hdir : c_vel_x);
+	c_vel_x = touching_b == 1 ? velo_h*hdir : (abs(c_vel_x) < 300 ? c_vel_x+_dt*velo_h*hdir : c_vel_x);
 	c_vel_y += touching_b == 1 ? velo_v*vdir : 0;
 		
 

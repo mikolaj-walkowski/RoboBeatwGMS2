@@ -16,5 +16,7 @@ function Floater_HIT(){
 	}else{
 		sprite_index = sFloaterHit;
 		image_index = 0;
+		c_vel_x = 0;
+		c_vel_y = 0;
 	}
 }
