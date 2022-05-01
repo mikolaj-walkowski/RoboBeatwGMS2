@@ -9,9 +9,14 @@
 current_state = 0;
 g = 300;
 fric_cof = 0.9;
+
 mass = 10;
+
 c_vel_x = 0;
 c_vel_y= 0;
+
+a_x = 0.3;
+
 touching_b =0;
 safeDist = 5;
 

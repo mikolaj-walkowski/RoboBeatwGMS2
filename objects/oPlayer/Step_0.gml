@@ -15,6 +15,7 @@ switch(movment){
 	case PlayerState.DASH: Player_DASH(); break;
 	case PlayerState.HIT: Player_HIT(); break;
 	case PlayerState.DEAD: break;
+	case PlayerState.ATTACK: Player_ATTACK(_dt) break;
 }
 
 

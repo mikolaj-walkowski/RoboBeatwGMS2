@@ -8,6 +8,7 @@ function Player_NORMAL(_dt){
 	down = keyboard_check(ord("S"))
 
 	dash_btn = gamepad_button_check_pressed(0,gp_face2) + keyboard_check_pressed(vk_space);
+	attack_btn = keyboard_check(ord("J"));
 
 	//Ustalanie kierunku w pionie dla dasza
 	hdir = 0;
@@ -51,5 +52,9 @@ function Player_NORMAL(_dt){
 		dash_start = current_time; 
 		movment = PlayerState.DASH;			
 		current_state &= !f_gravity;
+	}
+	
+	if(attack_btn ==1){
+		movment = PlayerState.ATTACK;
 	}
 }

@@ -1,6 +1,6 @@
 var _dt = delta_time / 1000000;
 
-
+touching_b =0;
 
 if(current_state&f_gravity!=0){ 
 	c_vel_y += g*_dt;
@@ -45,27 +45,29 @@ for(var i = 0; i < size ; i++){
 	}
 	
 	//From other to current
-	//var d_len =sqrt((oth.x - x)*(oth.x - x)+(oth.y - y)*(oth.y - y))
-	//var d_x = (oth.x - x)/d_len;
-	//var d_y = (oth.y - y)/d_len;
 	
-	//var d_v1_x = oth.c_vel_x*d_x > 0 ? oth.c_vel_x: 0;
-	//var d_v1_y = oth.c_vel_y*d_y > 0 ? oth.c_vel_y: 0;
+	var d_x = -sign(oth.x - x);
+	var d_y = -sign(oth.y - y);
+	
+	var d_v1_x = oth.c_vel_x*-d_x > 0 ? oth.c_vel_x: 0;
+	var d_v1_y = oth.c_vel_y*-d_y > 0 ? oth.c_vel_y: 0;
 
-	//var d_v2_x = c_vel_x*-d_x > 0 ? c_vel_x: 0;
-	//var d_v2_y = c_vel_y*-d_y > 0 ? c_vel_y: 0;
+	var d_v2_x = c_vel_x*d_x > 0 ? c_vel_x: 0;
+	var d_v2_y = c_vel_y*d_y > 0 ? c_vel_y: 0;
 	
-	//oth.c_vel_x += d_v2_x - d_v1_x;
-	//oth.c_vel_y += -d_v2_y + d_v1_y;
+	oth.c_vel_x = d_v1_x;
+	oth.c_vel_y = d_v1_y;
 
-	//c_vel_x += d_v1_x - d_v2_x;
-	//c_vel_y +=- d_v1_y + d_v2_y;
+	c_vel_x = d_v2_x;
+	c_vel_y = d_v2_y;
 	
-	//x -= d_x*safeDist;
-	//y -= d_y*safeDist;
+	touching_b = c_vel_y == 0 ? 1:0;
 	
-	//oth.x += d_x*safeDist;
-	//oth.y += d_y*safeDist;
+	//x += d_x*safeDist;
+	//y += d_y*safeDist;
+	
+	//oth.x -= d_x*safeDist;
+	//oth.y -= d_y*safeDist;
 }
 ds_list_destroy(collidedWith);
 
@@ -90,14 +92,12 @@ if(!place_empty(xprevious,y,oStatic)){
 		var in_dy = dy/10 ;
 		y = yprevious + in_dy*i;
 	}
-	//Jeżeli zaszła kolizja i obiekt przed nią nie poruszał się do góry 
+	//Jeżeli zaszła kolizja i obiekt przed nią nie poruszał się do góry aa
 	if(c_vel_y > 0){
 			touching_b = 1;
 	}
 	//Zawsze po kolizj zależnej od dY zeruje prędkość y
 	c_vel_y=0;
-}else{
-	touching_b = 0;	
 }
 
 

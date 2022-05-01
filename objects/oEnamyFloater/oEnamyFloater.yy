@@ -11,8 +11,8 @@
   },
   "persistent": false,
   "parentObjectId": {
-    "name": "oDynamic",
-    "path": "objects/oDynamic/oDynamic.yy",
+    "name": "oEnemy",
+    "path": "objects/oEnemy/oEnemy.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

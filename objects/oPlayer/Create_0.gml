@@ -9,7 +9,8 @@ enum PlayerState{
 	NORMAL,
 	DASH,
 	DEAD,
-	HIT
+	HIT,
+	ATTACK
 }	
 
 movment = PlayerState.NORMAL; 
@@ -41,3 +42,5 @@ current_state = (f_gravity|f_as)
 surf = -1; 
 lastHitT=0;
 ovDur = 100;
+
+currentHit = ds_list_create();
