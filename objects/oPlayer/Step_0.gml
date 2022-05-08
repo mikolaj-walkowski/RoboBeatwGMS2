@@ -14,7 +14,7 @@ switch(movment){
 	case PlayerState.NORMAL: Player_NORMAL(_dt) break;
 	case PlayerState.DASH: Player_DASH(); break;
 	case PlayerState.HIT: Player_HIT(); break;
-	case PlayerState.DEAD: break;
+	case PlayerState.DEAD: {c_vel_x=0} break;
 	case PlayerState.ATTACK: Player_ATTACK(_dt) break;
 }
 

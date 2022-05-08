@@ -1,29 +1,18 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function Player_ATTACK(_dt){
-	left = keyboard_check(ord("A"))
-	right = keyboard_check(ord("D"))
-	up = keyboard_check(ord("W"))
-	down = keyboard_check(ord("S"))
 	
-	//Ustalanie kierunku w pionie dla dasza
-	hdir = 0;
-	h1 = gamepad_axis_value(0, gp_axislh);
-	h1 = h1 > 0.15 || h1 <-0.15 ? h1 : 0;
-	hdir += h1;
-	hdir += right - left;
-
-	vdir = 0;
-	vdir += gamepad_button_check(0,gp_face2)- gamepad_button_check(0,gp_face1)
-	vdir += down - up;
+	inputs();
 	
-	c_vel_x = velo_h*hdir;//touching_b == 1 ? velo_h*hdir : (abs(c_vel_x) < 300 ? c_vel_x+_dt*velo_h*hdir : c_vel_x);
-	c_vel_y += touching_b == 1 ? velo_v*vdir : 0;
+	c_vel_x = hdir*attack_speed;
 	
-	g = jump_normal;
-	
-	if(vdir<0 && c_vel_y <= 0)
+	if(touching_b == 1 && jump_btn>0){
+		c_vel_y = velo_v*-1;
 		g = jump_hold;
+	}
+	
+	if(jump_realese > 0 && c_vel_y <= 0)
+		g = jump_normal;
 		
 	if(c_vel_y > 0)
 		g = jump_fall;
@@ -36,8 +25,7 @@ function Player_ATTACK(_dt){
 		for(var i = 0; i < _size ; i++){
 			if(ds_list_find_index(currentHit,Hit[|i])==-1){
 				ds_list_add(currentHit,Hit[|i]);
-				Hit[|i].hp--;
-				Hit[|i].movment = FloaterState.HIT;
+				Hit[|i].takeDmg(1);
 			}
 		}
 		ds_list_destroy(Hit);
@@ -48,11 +36,13 @@ function Player_ATTACK(_dt){
 			_spd = _spd/room_speed;
 		if(image_index+_spd >= sprite_get_number(sprite_index)){
 			movment = PlayerState.NORMAL;
+			current_state &= ~f_noautoflip;
 			sprite_index =sPlayer;
 		}
 	}else{
 		ds_list_clear(currentHit);
 		sprite_index = sPlayerAttack;
 		image_index = 0;
+		current_state|= f_noautoflip;
 	}
 }

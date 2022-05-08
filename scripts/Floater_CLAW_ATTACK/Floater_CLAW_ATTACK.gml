@@ -8,10 +8,7 @@ function Floater_CLAW_ATTACK(){
 	mask_index = mFloaterClaw;
 	if(place_meeting(x,y,global.player)&&!dealtDMG){
 		dealtDMG=true;
-		global.player.hp--;
-		global.player.movment = PlayerState.HIT;
-		show_debug_message(global.player.hp);
-		global.player.lastHitT = current_time;
+		global.player.takeDmg(1);
 	}
 	mask_index=sFloaterChase;
 	

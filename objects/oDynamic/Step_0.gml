@@ -116,7 +116,7 @@ if(!place_empty(xprevious,y,oStatic)){
 }
 
 //Obracam sprit-a obiektu w zależności od kierunku w którym się porusza
-if(sign(c_vel_x) != 0){
+if(sign(c_vel_x) != 0 && f_noautoflip&current_state!=f_noautoflip){
 	image_xscale = -sign(c_vel_x);
 	if (! place_empty(x,y)){
 		image_xscale *= -1;

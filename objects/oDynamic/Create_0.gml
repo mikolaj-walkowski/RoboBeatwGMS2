@@ -3,7 +3,7 @@
 #macro flags 0
 #macro f_gravity 1
 #macro f_friction 2
-#macro f_as 4
+#macro f_noautoflip 4
 #macro f_xaccel 8
 
 //Movment / Physics

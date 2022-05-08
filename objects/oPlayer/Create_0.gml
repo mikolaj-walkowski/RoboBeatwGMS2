@@ -23,7 +23,7 @@ hdir = 0;
 vdir = 0;
 
 //jump stuff
-jump_hold = g;
+jump_hold = 1.5*g;
 jump_normal = 2.5*g;
 jump_fall = 3*g;
 
@@ -34,14 +34,31 @@ dash_dir_x = 0;
 dash_dir_y = 0;
 dash_start = 0;
 dash_dur =  150;
+sprite_set_speed(sPlayerDash,sprite_get_number(sPlayerDash)/dash_dur,spritespeed_framespergameframe);
 
 //Physics stuff 
 velo_v = 300;
-velo_h = 200;
-current_state = (f_gravity|f_xaccel)
+velo_h = 250;
+current_state = (f_gravity|f_xaccel);
+top_v_x = 300;
 
 //Attack stuff
 currentHit = ds_list_create();
+attack_speed = 200;
+
+//Iframe
+iframe_dur = 15;
+iframe_start=0;
+sprite_set_speed(sPlayerHit,sprite_get_number(sPlayerHit)/iframe_dur,spritespeed_framespergameframe)
+
+//object functions
+takeDmg= function(damage){
+		if(iframe_start+iframe_dur < current_time && movment!= PlayerState.DEAD){
+			iframe_start = current_time;
+			hp-=damage;
+			movment = PlayerState.HIT;
+		}
+}
 
 //Particle Mby
 

@@ -8,9 +8,10 @@ function Player_HIT(){
 			_spd = _spd/room_speed;
 		if(image_index+_spd >= sprite_get_number(sprite_index)){
 			movment = PlayerState.NORMAL;
+			current_state = (f_gravity | f_xaccel); // Reset stanu do defaultoego
 			sprite_index =sPlayer;
 		}	
-	}else{
+	}else{ 
 		sprite_index = sPlayerHit;
 		image_index = 0;
 	}
