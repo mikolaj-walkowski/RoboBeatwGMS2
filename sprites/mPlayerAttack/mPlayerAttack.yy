@@ -86,7 +86,7 @@
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
     "xorigin": 48,
-    "yorigin": 66,
+    "yorigin": 65,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"mPlayerAttack","path":"sprites/mPlayerAttack/mPlayerAttack.yy",},

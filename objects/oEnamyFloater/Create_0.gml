@@ -39,7 +39,7 @@ iframe_dur = 15;
 iframe_start=0;
 sprite_set_speed(sFloaterHit,sprite_get_number(sFloaterHit)/iframe_dur,spritespeed_framespergameframe)
 
-takeDmg= function(damage){
+takeDmg = function(damage){
 		if(iframe_start+iframe_dur < current_time && movment!=FloaterState.DEAD){
 			iframe_start = current_time;
 			hp-=damage;
