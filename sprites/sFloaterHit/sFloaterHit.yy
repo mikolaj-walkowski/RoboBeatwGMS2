@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFloaterHit","path":"sprites/sFloaterHit/sFloaterHit.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFloaterHit",
     "tags": [],
     "resourceType": "GMSequence",

@@ -10,8 +10,13 @@ function Player_NORMAL(_dt){
 	if(touching_b == 0){
 		sprite_index = sPlayerFall;
 	}
+	
 	if(touching_b == 1){
-		sprite_index = sPlayer;	
+		if(i_vel_x == 0){
+			sprite_index = sPlayer;	
+		}else{
+			sprite_index= sPlayerWalk;
+		}
 	}
 	
 	if(touching_b == 1 && jump_btn>0){
@@ -34,15 +39,27 @@ function Player_NORMAL(_dt){
 		//Nadaje prędkość na czas dasz-a 
 		c_vel_x = dash_dir_x * dash_velo;
 		c_vel_y = dash_dir_y * dash_velo;
+		dash_start = current_time; 
+		if(oSoundManager.beat_window){
+			dash_start += 75;
+			oHud.playerOnBeat = current_time;
+		}
 		
 		//Pomniejszam ilość dostępnych daszy
 		dash_cnt-=1;
-		dash_start = current_time; 
+		
 		movment = PlayerState.DASH;			
-		current_state &= !(f_gravity|f_xaccel);
+		current_state &= ~(f_gravity|f_xaccel);
+		show_debug_message(current_state)
 	}
 	
 	if(attack_btn ==1){
+		currentDmg = 1;
+		if(oSoundManager.beat_window){
+			currentDmg += 1;
+			show_debug_message("On beat");
+			oHud.playerOnBeat = current_time;
+		}
 		movment = PlayerState.ATTACK;
 	}
 }

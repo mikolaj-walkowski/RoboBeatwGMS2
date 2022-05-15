@@ -6,7 +6,7 @@ event_inherited();
 
 //Physics
 current_state = flags;
-velo = 50;
+velo = 150;
 top_v_x = 50;
 
 
@@ -37,7 +37,7 @@ dealtDMG=false;
 //Iframes
 iframe_dur = 15;
 iframe_start=0;
-sprite_set_speed(sFloaterHit,sprite_get_number(sFloaterHit)/iframe_dur,spritespeed_framespergameframe)
+sprite_set_speed(sFloaterHit,sprite_get_number(sFloaterHit)/(iframe_dur/1000),spritespeed_framespersecond)
 
 takeDmg = function(damage){
 		if(iframe_start+iframe_dur < current_time && movment!=FloaterState.DEAD){

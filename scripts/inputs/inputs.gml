@@ -1,6 +1,7 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function inputs(){
+	with(oPlayer){
 	left = keyboard_check(ord("A"))
 	right = keyboard_check(ord("D"))
 	up = keyboard_check(ord("W"))
@@ -21,4 +22,5 @@ function inputs(){
 	h2 = h2 > 0.15 || h2 < -0.15 ? h2 : 0;
 	vdir = h2;
 	vdir += down - up;
+	}
 }

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHealthBar","path":"sprites/sHealthBar/sHealthBar.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHealthBar",
     "tags": [],
     "resourceType": "GMSequence",

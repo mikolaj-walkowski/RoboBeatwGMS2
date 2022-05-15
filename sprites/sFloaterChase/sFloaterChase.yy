@@ -103,7 +103,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFloaterChase","path":"sprites/sFloaterChase/sFloaterChase.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFloaterChase",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sStaticDeb","path":"sprites/sStaticDeb/sStaticDeb.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sStaticDeb",
     "tags": [],
     "resourceType": "GMSequence",

@@ -146,7 +146,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"ovPlayerHit","path":"sprites/ovPlayerHit/ovPlayerHit.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "ovPlayerHit",
     "tags": [],
     "resourceType": "GMSequence",

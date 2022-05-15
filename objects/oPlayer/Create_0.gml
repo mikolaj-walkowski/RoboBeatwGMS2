@@ -34,7 +34,7 @@ dash_dir_x = 0;
 dash_dir_y = 0;
 dash_start = 0;
 dash_dur =  150;
-sprite_set_speed(sPlayerDash,sprite_get_number(sPlayerDash)/dash_dur,spritespeed_framespergameframe);
+sprite_set_speed(sPlayerDash,sprite_get_number(sPlayerDash)/(dash_dur/1000),spritespeed_framespersecond);
 
 //Physics stuff 
 velo_v = 300;
@@ -45,11 +45,12 @@ top_v_x = 300;
 //Attack stuff
 currentHit = ds_list_create();
 attack_speed = 200;
+currentDmg = 1;
 
 //Iframe
 iframe_dur = 15;
 iframe_start=0;
-sprite_set_speed(sPlayerHit,sprite_get_number(sPlayerHit)/iframe_dur,spritespeed_framespergameframe)
+sprite_set_speed(sPlayerHit,sprite_get_number(sPlayerHit)/(iframe_dur/1000),spritespeed_framespersecond)
 
 //object functions
 takeDmg= function(damage){

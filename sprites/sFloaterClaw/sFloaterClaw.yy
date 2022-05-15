@@ -103,7 +103,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFloaterClaw","path":"sprites/sFloaterClaw/sFloaterClaw.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFloaterClaw",
     "tags": [],
     "resourceType": "GMSequence",

@@ -95,7 +95,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFloaterDeath","path":"sprites/sFloaterDeath/sFloaterDeath.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFloaterDeath",
     "tags": [],
     "resourceType": "GMSequence",

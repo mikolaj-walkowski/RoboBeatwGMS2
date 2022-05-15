@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"newtileset_2","path":"sprites/newtileset_2/newtileset_2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "newtileset_2",
     "tags": [],
     "resourceType": "GMSequence",

@@ -1,7 +1,7 @@
 {
   "conversionMode": 0,
   "compression": 0,
-  "volume": 1.0,
+  "volume": 0.25,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "",
-  "duration": 0.0,
+  "soundFile": "sndBattleMetalSong.wav",
+  "duration": 48.3439445,
   "parent": {
-    "name": "RoboBeat",
-    "path": "RoboBeat.yyp",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Sound1",
+  "name": "sndBattleMetalSong",
   "tags": [],
   "resourceType": "GMSound",
 }

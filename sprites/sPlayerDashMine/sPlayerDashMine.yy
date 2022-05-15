@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sPlayerDashMine","path":"sprites/sPlayerDashMine/sPlayerDashMine.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sPlayerDashMine",
     "tags": [],
     "resourceType": "GMSequence",

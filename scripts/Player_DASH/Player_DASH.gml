@@ -13,6 +13,6 @@ function Player_DASH(){
 		i_vel_x = velo_v * dash_dir_x;
 		sprite_index =sPlayer;	
 		movment = PlayerState.NORMAL;
-		current_state |= (f_gravity | f_xaccel);
+		current_state |= (f_gravity | f_xaccel );
 	}
 }

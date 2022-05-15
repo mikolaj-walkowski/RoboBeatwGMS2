@@ -103,7 +103,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFloaterIdle","path":"sprites/sFloaterIdle/sFloaterIdle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFloaterIdle",
     "tags": [],
     "resourceType": "GMSequence",

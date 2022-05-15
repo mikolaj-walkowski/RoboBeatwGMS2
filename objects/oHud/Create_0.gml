@@ -4,4 +4,5 @@
 cube_width= sprite_width ;
 cube_height = sprite_height;
 
+playerOnBeat = -1;
 image_xscale = 3;

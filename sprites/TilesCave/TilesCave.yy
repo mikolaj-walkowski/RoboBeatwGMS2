@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"TilesCave","path":"sprites/TilesCave/TilesCave.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "TilesCave",
     "tags": [],
     "resourceType": "GMSequence",
