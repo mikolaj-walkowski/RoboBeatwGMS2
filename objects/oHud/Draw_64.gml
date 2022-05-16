@@ -21,5 +21,5 @@ if (oSoundManager.beat_window){
 	draw_sprite_ext(sStaticDeb,0,
 	x+cube_width*0.125 + cube_width*0.625*5,
 	y+cube_height*0.125,
-	0.5, 0.5,0, c_yellow ,1);
+	0.5, 0.5,0, c_orange ,1);
 }

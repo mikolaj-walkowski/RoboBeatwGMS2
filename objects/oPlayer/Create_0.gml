@@ -15,6 +15,9 @@ enum PlayerState{
 //State machine
 movment = PlayerState.NORMAL; 
 
+//Draw stuff
+playerOnBeat = false;
+
 //Inputs
 dash_btn =0;
 jump_btn = 0;
@@ -25,7 +28,7 @@ vdir = 0;
 //jump stuff
 jump_hold = 1.5*g;
 jump_normal = 2.5*g;
-jump_fall = 3*g;
+jump_fall = 3.5*g;
 
 //dash stuf
 dash_velo = 750;
@@ -34,7 +37,8 @@ dash_dir_x = 0;
 dash_dir_y = 0;
 dash_start = 0;
 dash_dur =  150;
-sprite_set_speed(sPlayerDash,sprite_get_number(sPlayerDash)/(dash_dur/1000),spritespeed_framespersecond);
+dash_curr_dur= dash_dur;
+
 
 //Physics stuff 
 velo_v = 300;

@@ -14,5 +14,6 @@ function Player_HIT(){
 	}else{ 
 		sprite_index = sPlayerHit;
 		image_index = 0;
+		playerOnBeat=false;
 	}
 }

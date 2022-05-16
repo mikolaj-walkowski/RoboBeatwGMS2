@@ -37,6 +37,7 @@ function Player_ATTACK(_dt){
 			_spd = _spd/room_speed;
 		if(image_index+_spd >= sprite_get_number(sprite_index)){
 			movment = PlayerState.NORMAL;
+			playerOnBeat=false;
 			current_state =current_state ^f_noautoflip;
 			sprite_index =sPlayer;
 		}
@@ -45,6 +46,5 @@ function Player_ATTACK(_dt){
 		sprite_index = sPlayerAttack;
 		image_index = 0;
 		current_state|= f_noautoflip;
-		show_debug_message(current_state)
 	}
 }

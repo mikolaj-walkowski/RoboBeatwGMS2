@@ -26,23 +26,21 @@ movment = FloaterState.PATROL;
 
 //Patrols
 patrolRadius = 250;
-patrolDurr = 2000;
-patrolStart = 0;
-patrolDirX = 1;
-patrolDirY = 0;
+currMoveX = MoveX;
+currMoveY = MoveY;
 
 //Attack
 dealtDMG=false;
 
 //Iframes
-iframe_dur = 15;
+iframe_dur = 150;
 iframe_start=0;
 sprite_set_speed(sFloaterHit,sprite_get_number(sFloaterHit)/(iframe_dur/1000),spritespeed_framespersecond)
 
 takeDmg = function(damage){
-		if(iframe_start+iframe_dur < current_time && movment!=FloaterState.DEAD){
-			iframe_start = current_time;
-			hp-=damage;
-			movment = FloaterState.HIT;
-		}
+	if(iframe_start+iframe_dur < current_time && movment!=FloaterState.DEAD){
+		iframe_start = current_time;
+		hp-=damage;
+		movment = FloaterState.HIT;
+	}
 }

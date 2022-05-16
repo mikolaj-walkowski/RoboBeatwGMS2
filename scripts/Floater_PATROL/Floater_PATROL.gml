@@ -10,18 +10,23 @@ function Floater_PATROL(_dt){
 			sprite_index = sFloaterChase;
 		}
 	}
-	if(current_time <= patrolDurr + patrolStart){
+	if(currMoveX > 0 || currMoveY>0){
+		
+	}else{
+		currMoveX = MoveX;
+		currMoveY = MoveY;
+		patrolDirX*=-1;
+		patrolDirY*=-1;
+	}
 		if(oSoundManager.beat){
-		c_vel_x = velo*patrolDirX;
-		c_vel_y = velo*patrolDirY;
+			c_vel_x = currMoveX > 0 ? velo*patrolDirX : 0;
+			c_vel_y = currMoveY > 0 ? velo*patrolDirY : 0;
+			currMoveX --;
+			currMoveY --;
 		}else{
 			beat_t_s = (oSoundManager.beat_T)/1000;
 			c_vel_x *=1 - (1/beat_t_s)*_dt;
 			c_vel_y *=1 - (1/beat_t_s)*_dt;	
-		}
-	}else{
-		patrolDirX*=-1;
-		patrolDirY*=-1;
-		patrolStart = current_time;
 	}
+	
 }

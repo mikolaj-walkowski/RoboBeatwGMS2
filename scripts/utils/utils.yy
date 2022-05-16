@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Common.yy",
   },
   "resourceVersion": "1.0",
-  "name": "approach",
+  "name": "utils",
   "tags": [],
   "resourceType": "GMScript",
 }

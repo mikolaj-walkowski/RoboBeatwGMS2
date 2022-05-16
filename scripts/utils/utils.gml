@@ -9,3 +9,12 @@ function approach(value,target,increment){
 	}
 	return value;
 }
+
+function betweenI(val,a,b){
+	return val >= a && val<=b
+}
+
+function between(val,a,b){
+	return val > a && val<b
+}
+

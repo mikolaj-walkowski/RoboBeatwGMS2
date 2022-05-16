@@ -4,7 +4,6 @@ if(beat_window_start + beat_T - window <= current_time){
 
 if(beat_window_start + beat_T <= current_time){
 	beat = true;
-	show_debug_message("beat"); 
 	beat_window_start += beat_T;
 }else{
 	beat = false;

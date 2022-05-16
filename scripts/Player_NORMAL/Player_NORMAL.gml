@@ -41,24 +41,22 @@ function Player_NORMAL(_dt){
 		c_vel_y = dash_dir_y * dash_velo;
 		dash_start = current_time; 
 		if(oSoundManager.beat_window){
-			dash_start += 75;
+			dash_curr_dur+=100;
 			oHud.playerOnBeat = current_time;
+			playerOnBeat = true;
 		}
-		
 		//Pomniejszam ilość dostępnych daszy
 		dash_cnt-=1;
-		
 		movment = PlayerState.DASH;			
 		current_state &= ~(f_gravity|f_xaccel);
-		show_debug_message(current_state)
 	}
 	
 	if(attack_btn ==1){
 		currentDmg = 1;
 		if(oSoundManager.beat_window){
 			currentDmg += 1;
-			show_debug_message("On beat");
 			oHud.playerOnBeat = current_time;
+			playerOnBeat= true;
 		}
 		movment = PlayerState.ATTACK;
 	}

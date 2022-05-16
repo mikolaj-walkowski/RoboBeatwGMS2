@@ -26,20 +26,14 @@ if(current_state&f_xaccel!=0){
 if(current_state&f_yaccel!=0){
 	//W tym przypadku uznajemy c_vel_y jako kierunek ruchu i ignorujemy jego wartość
 	c_vel_y = sign(c_vel_y);
-	//Wyznaczam maksymalną prędkość ruchu w oy (zmiejszona o połowe w powietrzu żeby lekko utrudnić movment)
-	var top = touching_b==1 ? top_v_y : top_v_y *0.5;
-	//Przyśpieszenie oy (zmiejszone o połowe w powietrzu żeby lekko utrudnić movment)
-	var a = touching_b==1 ? a_y : a_y *0.5;
 	if(c_vel_y*i_vel_y >= 0) //Jeżeli kierunek w którym chce się poruszć jest zgodny z obecnym kierunkiem ruchu albo chce się zatrzymać
-		i_vel_y = approach(i_vel_y,c_vel_y*top,a*_dt);
+		i_vel_y = approach(i_vel_y,c_vel_y*top_v_y,a_y*_dt);
 	else //Jeżeli chce zmienić kierunek ruchu 
-		i_vel_y = approach(i_vel_y,c_vel_y*top,a*_dt*2);
+		i_vel_y = approach(i_vel_y,c_vel_y*top_v_y,a_y*_dt*2);
 }else{
 	// Jeżeli flaga nie jest aktywna poprostu przypisuje zwykła wartość
 	i_vel_y = c_vel_y;
 }
-
-
 
 
 if(current_state&f_friction!=0){
@@ -87,16 +81,22 @@ for(var i = 0; i < size ; i++){
 	
 	//Zeruje prędkości w zależności w kierunku zderzenia + w przysłości powinniśmy przerobić to tak żeby uwzględniało pędy
 	var d_v1_x = oth.c_vel_x*-d_x > 0 ? oth.c_vel_x: 0;
-	var d_v1_y = oth.i_vel_y*-d_y > 0 ? oth.i_vel_y: 0;
+	var d_v1_y = oth.c_vel_y*-d_y > 0 ? oth.c_vel_y: 0;
 
 	var d_v2_x = i_vel_x*d_x > 0 ? i_vel_x: 0;
 	var d_v2_y = i_vel_y*d_y > 0 ? i_vel_y: 0;
 	
-	oth.c_vel_x = d_v1_x;
+	oth.i_vel_x = d_v1_x;
 	oth.i_vel_y = d_v1_y;
+	
+	oth.c_vel_x = d_v1_x;
+	oth.c_vel_y = d_v1_y;
 
 	i_vel_x = d_v2_x;
 	i_vel_y = d_v2_y;
+	
+	c_vel_x = d_v2_x;
+	c_vel_y = d_v2_y;
 	
 	touching_b = i_vel_y == 0 ? 1:0;
 	
@@ -132,6 +132,7 @@ if(!place_empty(xprevious,y,oStatic)){
 	}
 	//Zawsze po kolizj zależnej od dY zeruje prędkość y
 	i_vel_y=0;
+	c_vel_y=0;
 }
 
 //Obracam sprit-a obiektu w zależności od kierunku w którym się porusza

@@ -3,7 +3,7 @@
 function Floater_CHASE(_dt){
 	if(instance_exists(global.player)){
 		target_x = global.player.x;
-		target_y = global.player.y - 65;
+		target_y = global.player.y - 45;
 
 		dir_x = target_x - x;
 		dir_y = target_y - y;

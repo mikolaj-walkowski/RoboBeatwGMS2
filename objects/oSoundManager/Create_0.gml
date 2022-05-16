@@ -11,9 +11,8 @@ beat_window_start=current_time;
 //}
 
 beat_T= (60/45)*1000;
-show_debug_message("Beat_t:"+string(beat_T))
 
-window = 150;
+window = 175;
 
 beat = false;
 beat_window= false;
