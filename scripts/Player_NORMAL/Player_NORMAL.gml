@@ -44,6 +44,9 @@ function Player_NORMAL(_dt){
 			dash_curr_dur+=100;
 			oHud.playerOnBeat = current_time;
 			playerOnBeat = true;
+			ComboLv = min(ComboLv+1,3);
+		}else{
+			ComboLv =0;
 		}
 		//Pomniejszam ilość dostępnych daszy
 		dash_cnt-=1;
@@ -57,6 +60,9 @@ function Player_NORMAL(_dt){
 			currentDmg += 1;
 			oHud.playerOnBeat = current_time;
 			playerOnBeat= true;
+		ComboLv = min(ComboLv+1,3);
+		}else{
+			ComboLv =0;
 		}
 		movment = PlayerState.ATTACK;
 	}

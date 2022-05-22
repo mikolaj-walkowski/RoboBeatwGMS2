@@ -24,7 +24,11 @@ enum bulldozerState
 	DEAD
 }
 
-movement = bulldozerState.ASLEEP;
+movment = bulldozerState.ASLEEP;
+
+//Iframes
+iframe_dur = 150;
+iframe_start=0;
 
 takeDmg = function(damage)
 {

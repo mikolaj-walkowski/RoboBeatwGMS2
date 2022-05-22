@@ -18,6 +18,10 @@ movment = PlayerState.NORMAL;
 //Draw stuff
 playerOnBeat = false;
 
+//Health
+hpMAX = 10;
+hp=hpMAX;
+
 //Inputs
 dash_btn =0;
 jump_btn = 0;
@@ -55,6 +59,10 @@ currentDmg = 1;
 iframe_dur = 15;
 iframe_start=0;
 sprite_set_speed(sPlayerHit,sprite_get_number(sPlayerHit)/(iframe_dur/1000),spritespeed_framespersecond)
+
+//Combo Meter
+
+ComboLv = 0;
 
 //object functions
 takeDmg= function(damage){
