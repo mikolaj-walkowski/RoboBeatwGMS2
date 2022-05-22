@@ -1,12 +1,9 @@
 {
-  "spriteId": {
-    "name": "sStaticDeb",
-    "path": "sprites/sStaticDeb/sStaticDeb.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
-  "persistent": false,
+  "persistent": true,
   "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
