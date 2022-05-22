@@ -7,16 +7,28 @@ function Player_ATTACK(_dt){
 	
 		c_vel_x = hdir*attack_speed;
 	
+		//if(touching_b == 1 && jump_btn>0){
+		//	c_vel_y = velo_v*-1;
+		//	g = jump_hold;
+		//}
+	
+		//if(jump_realese > 0 && c_vel_y <= 0)
+		//	g = jump_normal;
+		
+		//if(c_vel_y > 0)
+		//	g = jump_fall;
 		if(touching_b == 1 && jump_btn>0){
 			c_vel_y = velo_v*-1;
-			g = jump_hold;
+			jump_startY = y;
+			jump_btn_hold=true;
 		}
 	
-		if(jump_realese > 0 && c_vel_y <= 0)
-			g = jump_normal;
-		
-		if(c_vel_y > 0)
-			g = jump_fall;
+		if(jump_btn_hold){
+			c_vel_y = velo_v*-1;
+			if(jump_realese == 1 || jump_startY - jump_height >= y ){
+				jump_btn_hold = false;
+			}
+		}
 		
 		mask_index = mPlayerAttack;
 		var Hit = ds_list_create();

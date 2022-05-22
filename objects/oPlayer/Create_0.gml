@@ -30,13 +30,19 @@ hdir = 0;
 vdir = 0;
 
 //jump stuff
-jump_hold = 1.5*g;
-jump_normal = 2.5*g;
-jump_fall = 3.5*g;
+jump_btn_hold = false;
+jump_height = 75;
+jump_startY = 0;
+//jump_hold = 1.5*g;
+//jump_normal = 2.5*g;
+//jump_fall = 3.5*g;
+
+g *= 3.5;
 
 //dash stuf
 dash_velo = 750;
-dash_cnt = 2;
+dash_cnt_max = 2;
+dash_cnt = dash_cnt_max;
 dash_dir_x = 0;
 dash_dir_y = 0;
 dash_start = 0;

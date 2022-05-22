@@ -9,7 +9,7 @@ function Player_DASH (){
 		iframe_start=current_time;
 	}
 	
-	if(dash_start + dash_curr_dur < current_time){
+	if(dash_start + dash_curr_dur < current_time || collision){
 		c_vel_x = velo_h * dash_dir_x;
 		c_vel_y = velo_v * dash_dir_y;
 		i_vel_x = velo_v * dash_dir_x;

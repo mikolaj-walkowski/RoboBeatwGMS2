@@ -37,3 +37,5 @@ safeDist = 2;
 
 // Attacks and Damage
 hp = 10 
+
+collision = false;

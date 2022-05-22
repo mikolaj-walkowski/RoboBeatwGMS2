@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "RoboBeat",
-    "path": "RoboBeat.yyp",
+    "name": "Level",
+    "path": "folders/Sprites/Level.yy",
   },
   "resourceVersion": "1.0",
   "name": "sCrane",

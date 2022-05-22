@@ -1,4 +1,5 @@
 var _dt = delta_time / 1000000;
+collision = false;
 
 a_y = g;
 
@@ -12,7 +13,7 @@ if(current_state&f_xaccel!=0){
 	//W tym przypadku uznajemy c_vel_x jako kierunek ruchu i ignorujemy jego wartość
 	c_vel_x = sign(c_vel_x);
 	//Wyznaczam maksymalną prędkość ruchu w oX (zmiejszona o połowe w powietrzu żeby lekko utrudnić movment)
-	var top = touching_b==1 ? top_v_x : top_v_x *0.5;
+	var top = top_v_x//touching_b==1 ? top_v_x : top_v_x *0.5;
 	//Przyśpieszenie oX (zmiejszone o połowe w powietrzu żeby lekko utrudnić movment)
 	var a = touching_b==1 ? a_x : a_x *0.5;
 	if(c_vel_x*i_vel_x >= 0) //Jeżeli kierunek w którym chce się poruszć jest zgodny z obecnym kierunkiem ruchu albo chce się zatrzymać
@@ -55,7 +56,7 @@ collidedWith = ds_list_create();
 
 var size = instance_place_list(x,y, oDynamic,collidedWith,false);
 for(var i = 0; i < size ; i++){
-	
+	collision = true;
 	var oth = collidedWith[|i];
 	
 	// Narazie to wektor w kierunku kolidującego (nie unormowany, teoretycznie powinnien być unormowany)
@@ -110,6 +111,7 @@ ds_list_destroy(collidedWith);
 //2. Usuwamy prędkość co klatkę, narazie to dodałem bo chce żeby postać w locie była trudniejsza do kontrolowania
 
 if( !place_empty(x,yprevious,oStatic)){
+	collision = true;
 	//Jeżeli zachodzi to sprawdzam dla pozycji o 0.1 mniejszej, ogólnie kiedyś to warto przyśpieszyć binsearch-em.
 	for(var i = 10; !place_empty(x,yprevious,oStatic) ; i-=1){
 		var in_dx = dx/10;
@@ -121,6 +123,7 @@ if( !place_empty(x,yprevious,oStatic)){
 
 
 if(!place_empty(xprevious,y,oStatic)){
+	collision = true;
 	//Jeżeli zachodzi to sprawdzam dla pozycji o 0.1 mniejszej, ogólnie kiedyś to warto przyśpieszyć binsearch-em.
 	for(var i = 10; !place_empty(xprevious,y,oStatic) ; i-=1){
 		var in_dy = dy/10 ;

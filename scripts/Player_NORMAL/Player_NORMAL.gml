@@ -19,16 +19,30 @@ function Player_NORMAL(_dt){
 		}
 	}
 	
+	//if(touching_b == 1 && jump_btn>0){
+	//	c_vel_y = velo_v*-1;
+	//	g = jump_hold;
+	//}
+	
+	//if(jump_realese > 0 && c_vel_y <= 0)
+	//	g = jump_normal;
+		
+	//if(c_vel_y > 0)
+	//	g = jump_fall;
+	
 	if(touching_b == 1 && jump_btn>0){
 		c_vel_y = velo_v*-1;
-		g = jump_hold;
+		jump_startY = y;
+		jump_btn_hold=true;
 	}
 	
-	if(jump_realese > 0 && c_vel_y <= 0)
-		g = jump_normal;
-		
-	if(c_vel_y > 0)
-		g = jump_fall;
+	if(jump_btn_hold){
+		if(jump_realese == 1 || jump_startY - jump_height >= y || c_vel_y == 0){
+			jump_btn_hold = false;
+		}
+		c_vel_y = velo_v*-1;
+	}
+	
 
 	if(dash_btn == 1 && dash_cnt > 0 && (hdir!=0 || vdir !=0)){
 		
@@ -40,6 +54,7 @@ function Player_NORMAL(_dt){
 		c_vel_x = dash_dir_x * dash_velo;
 		c_vel_y = dash_dir_y * dash_velo;
 		dash_start = current_time; 
+		
 		if(oSoundManager.beat_window){
 			dash_curr_dur+=100;
 			oHud.playerOnBeat = current_time;

@@ -7,7 +7,7 @@ var _dt = delta_time / 1000000;
 
 if(hp <= 0) movment = PlayerState.DEAD;
 
-dash_cnt = touching_b == 1 ? 1 : dash_cnt;
+dash_cnt = touching_b == 1 ? dash_cnt_max : dash_cnt;
 
 
 switch(movment){
