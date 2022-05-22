@@ -1,7 +1,11 @@
 {
   "conversionMode": 0,
   "compression": 0,
+<<<<<<< Updated upstream
   "volume": 0.3,
+=======
+  "volume": 1.0,
+>>>>>>> Stashed changes
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -12,7 +16,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sndBattleMetalSong.wav",
-  "duration": 48.3439445,
+  "duration": 42.6531754,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
