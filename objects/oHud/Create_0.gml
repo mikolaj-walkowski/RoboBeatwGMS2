@@ -1,12 +1,15 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-cube_width= sprite_width ;
-cube_height = sprite_height;
 
+//Tank stuff
+hpX = -40;
+hpY = -5;
+
+//Turbo stuff
 scH=oCamera.projHeight;
-
 beatColor = c_black;
+tX = -30;
+tY=scH +60;
 
 playerOnBeat = -1;
-image_xscale = 3;

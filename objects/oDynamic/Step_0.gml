@@ -80,11 +80,11 @@ for(var i = 0; i < size ; i++){
 	}
 	
 	//Zeruje prędkości w zależności w kierunku zderzenia + w przysłości powinniśmy przerobić to tak żeby uwzględniało pędy
-	var d_v1_x = oth.c_vel_x*-d_x > 0 ? oth.c_vel_x: 0;
-	var d_v1_y = oth.c_vel_y*-d_y > 0 ? oth.c_vel_y: 0;
+	var d_v1_x = oth.c_vel_x*-d_x > 0 && abs(oth.c_vel_x) > EPSILON? oth.c_vel_x: 0;
+	var d_v1_y = oth.c_vel_y*-d_y > 0 && abs(oth.c_vel_y) > EPSILON ? oth.c_vel_y: 0;
 
-	var d_v2_x = i_vel_x*d_x > 0 ? i_vel_x: 0;
-	var d_v2_y = i_vel_y*d_y > 0 ? i_vel_y: 0;
+	var d_v2_x = i_vel_x*d_x > 0 && abs(i_vel_x) > EPSILON ? i_vel_x: 0;
+	var d_v2_y = i_vel_y*d_y > 0 && abs(i_vel_y) > EPSILON ? i_vel_y: 0;
 	
 	oth.i_vel_x = d_v1_x;
 	oth.i_vel_y = d_v1_y;

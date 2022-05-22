@@ -1,5 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
+#macro EPSILON 1
+
 #macro flags 0
 #macro f_gravity 1 
 #macro f_friction 1 << 1
