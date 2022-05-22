@@ -11,6 +11,8 @@ beat_window_start=current_time + beat_T;
 show_debug_message(beat_T);
 
 window = 175;
+windowBf = 200;
+windowAf = 100;
 
 beat = false;
 beat_happened = false;
