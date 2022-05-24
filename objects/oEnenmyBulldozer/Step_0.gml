@@ -3,9 +3,14 @@
 
 
 
+
 switch(movment)
 {
 	case bulldozerState.ASLEEP: bulldozerASLEEP(); break;
+	case bulldozerState.AWAKE: bulldozerAWAKE(); break;
+	case bulldozerState.CHARGE: bulldozerCHARGE(); break;
+	case bulldozerState.CHASE: bulldozerCHASE(); break;
+	case bulldozerState.HIT: bulldozerHit(); break;
 }
 
 // Inherit the parent event
