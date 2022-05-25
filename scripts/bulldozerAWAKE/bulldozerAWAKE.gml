@@ -5,10 +5,10 @@ function bulldozerAWAKE(){
 	{
 		var dx = x - global.player.x;
 		var dy = y - global.player.y;
-		if(dx < 0 * facingDirection)
-			movement = bulldozerState.CHARGE;
+		if(sign(dx) * image_xscale > 0 && oSoundManager.beat)
+			movment = bulldozerState.CHARGE;
 		else
-			movement = bulldozerState.CHASE;
+			movment = bulldozerState.CHASE;
 	}
-	debug_event("AWAKE");
+	show_debug_message("AWAKE");
 }

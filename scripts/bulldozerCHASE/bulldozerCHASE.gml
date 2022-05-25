@@ -3,11 +3,15 @@
 function bulldozerCHASE(){
 	if(instance_exists(global.player))
 	{
-		var dx = x - global.player.x;
+		var dx = x - global.player.x; // Śmieszna metoda trochę bo zwraca ci liczbę mniejszą od zera w prawo a większą w lewo gdzie globalnie x rośnie w prawo 
 		var dy = y - global.player.y;
-		if(!dx < 0 * facingDirection)
-			facingDirection *= -1;
-		c_vel_x = top_v_x * (-facingDirection);
+		var distance = sqrt((dx * dx) + (dy * dy));
+		c_vel_x = top_v_x * - sign(dx);
+		if(sign(dx) * image_xscale > 0 && distance <= chargeRange && oSoundManager.beat){
+			movment = bulldozerState.CHARGE;
+			return;
+			
+		}
 	}
-	debug_event("CHASE");
+	show_debug_message("CHASE");
 }

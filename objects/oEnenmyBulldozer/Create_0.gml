@@ -5,14 +5,14 @@
 event_inherited();
 
 current_state = f_gravity;
-top_v_x = 30;
-charge_v = 60;
+top_v_x = 150;
+charge_v = 300;
 
 hp = 7;
 outOfComission = false;
-facingDirection = 1; //left = 1, right = -1
+facingDirection = image_xscale; //left = 1, right = -1 Używaj image_xscale
 
-chargeRange = 100;
+chargeRange = 500;
 chargeBlindSpot = 0.4 * chargeRange;
 chargeDistanceCrossed = 0;
 chargeStartX = 0;
