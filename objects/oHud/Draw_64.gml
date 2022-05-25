@@ -3,21 +3,6 @@
 x=0;
 y=0;
 
-//if (playerOnBeat != -1){
-//	if(playerOnBeat +300 >= current_time){
-//		draw_sprite_ext(sStaticDeb,0,
-//		x+cube_width*0.125 + cube_width*0.625*5,
-//		y+cube_height*0.125 + cube_height*0.625,
-//		0.5, 0.5,0, c_yellow ,1)
-//	}
-//}
-//if (oSoundManager.beat_window){
-//	draw_sprite_ext(sStaticDeb,0,
-//	x+cube_width*0.125 + cube_width*0.625*5,
-//	y+cube_height*0.125,
-//	0.5, 0.5,0, c_orange ,1);
-//}
-
 //Tank & HP
 draw_sprite(sHUDTankBg,0,hpX,hpY);
 var HpH = sprite_get_height(sHUDTankHp);
@@ -45,3 +30,14 @@ switch(global.player.ComboLv){
 	break;
 }
 draw_sprite(sHUDTurbo,0,tX,tY);
+
+//Gauage 
+
+draw_sprite_ext(sHUDFuelGauage,0,gX,gY, 1, 1, gA, c_white, 1);
+
+
+var ang = lerp(gaAmax,gaAmin, (current_time -gaStart)/gaAt);
+ang = ang > gaAmin ? gaAmin: ang; 
+draw_sprite_ext(sHUDFuelGauageArm,0,gaX,gaY, 1, 1,
+	ang,
+	c_white, 1);

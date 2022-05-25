@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"Sprite19","path":"sprites/Sprite19/Sprite19.yy",},"order":0,},
+    {"id":{"name":"sHUDFuelGauage","path":"sprites/sHUDFuelGauage/sHUDFuelGauage.yy",},"order":10,},
     {"id":{"name":"utils","path":"scripts/utils/utils.yy",},"order":0,},
     {"id":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},"order":0,},
     {"id":{"name":"sFloaterIdle","path":"sprites/sFloaterIdle/sFloaterIdle.yy",},"order":2,},
@@ -25,6 +26,7 @@
     {"id":{"name":"Player_DASH","path":"scripts/Player_DASH/Player_DASH.yy",},"order":0,},
     {"id":{"name":"sHUDTurboCLv2","path":"sprites/sHUDTurboCLv2/sHUDTurboCLv2.yy",},"order":7,},
     {"id":{"name":"Player_NORMAL","path":"scripts/Player_NORMAL/Player_NORMAL.yy",},"order":1,},
+    {"id":{"name":"sHUDFuelGauageArm","path":"sprites/sHUDFuelGauageArm/sHUDFuelGauageArm.yy",},"order":11,},
     {"id":{"name":"sHUDTurboCLv3","path":"sprites/sHUDTurboCLv3/sHUDTurboCLv3.yy",},"order":6,},
     {"id":{"name":"Floater_CLAW_ATTACK","path":"scripts/Floater_CLAW_ATTACK/Floater_CLAW_ATTACK.yy",},"order":1,},
     {"id":{"name":"sPlayerFall","path":"sprites/sPlayerFall/sPlayerFall.yy",},"order":7,},
