@@ -41,7 +41,7 @@ g *= 3.5;
 
 //dash stuf
 dash_velo = 750;
-dash_cnt_max = 2;
+dash_cnt_max = 1;
 dash_cnt = dash_cnt_max;
 dash_dir_x = 0;
 dash_dir_y = 0;

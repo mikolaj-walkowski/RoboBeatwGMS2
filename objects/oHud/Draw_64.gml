@@ -13,12 +13,37 @@ draw_sprite(sHUDTank,0,hpX,hpY);
 //Turbo
 
 draw_sprite(sHUDTurboBg,0,tX,tY);
-if(oSoundManager.beat_window){
-	 beatColor = make_colour_hsv(24,255,255);
-}else{
-	beatColor = make_colour_hsv(24,255,color_get_value(beatColor) - 0.00155*delta_time);
+
+if(tCycle == 0){ 
+	var h = lerp(25,8,(current_time - tCycleStart)/(oSoundManager.beat_T - oSoundManager.windowBf -oSoundManager.windowAf));
+	var s = lerp(164,224,(current_time - tCycleStart)/(oSoundManager.beat_T - oSoundManager.windowBf -oSoundManager.windowAf));
+	beatColor = make_color_hsv(h,s,255);
+	if(oSoundManager.beat_window){  //low 10,80,100
+		tCycle = 1;
+		tCycleStart = current_time;
+	}
 }
+if(tCycle == 1){ 
+	var h = lerp(8,50,(current_time - tCycleStart)/(oSoundManager.windowBf));
+	var s = lerp(224,124,(current_time - tCycleStart)/(oSoundManager.windowBf));
+	beatColor = make_color_hsv(h,s, 255);
+	if(oSoundManager.beat){ //peak 55,40,100
+		tCycle = 2;
+		tCycleStart = current_time;
+	}
+}
+if(tCycle == 2){ 
+	var h = lerp(50,25,(current_time - tCycleStart)/(oSoundManager.windowAf));
+	var s = lerp(124,164,(current_time - tCycleStart)/(oSoundManager.windowAf));
+	beatColor = make_color_hsv(h,s, 255);
+	if(!oSoundManager.beat_window){ //peak 55,40,100
+		tCycle = 0;
+		tCycleStart = current_time;
+	}
+}
+
 draw_sprite_ext(sHUDTurboBeat,0,tX,tY,1,1,0,beatColor,1);
+
 switch(global.player.ComboLv){
 	case 3:
 	draw_sprite(sHUDTurboCLv3,0,tX,tY);

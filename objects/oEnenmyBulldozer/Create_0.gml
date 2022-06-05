@@ -12,7 +12,7 @@ hp = 7;
 outOfComission = false;
 facingDirection = image_xscale; //left = 1, right = -1 Używaj image_xscale
 
-chargeRange = 500;
+chargeRange = 400;
 chargeBlindSpot = 0.4 * chargeRange;
 chargeDistanceCrossed = 0;
 chargeStartX = 0;
@@ -28,7 +28,8 @@ enum bulldozerState
 	CHASE,
 	CHARGE,
 	HIT,
-	DEAD
+	DEAD,
+	STUN
 }
 
 movment = bulldozerState.ASLEEP;

@@ -8,6 +8,7 @@ switch(movment)
 	case bulldozerState.CHARGE: bulldozerCHARGE(); break; // Teraz zaczne chargeować na kolejny beat ja bym dodał mu jakiś cooldown jeszcze 
 	case bulldozerState.CHASE: bulldozerCHASE(); break;
 	case bulldozerState.HIT: bulldozerHit(); break; 
+	case bulldozerState.STUN: bulldozerSTUN(); break;
 }
 
 // Inherit the parent event

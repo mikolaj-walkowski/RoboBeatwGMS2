@@ -11,8 +11,7 @@ function bulldozerCHARGE(){
 	{
 		c_vel_x = 0;
 		chargeStartSet = false;
-		movment = bulldozerState.CHASE;
+		movment = bulldozerState.STUN;
 	}
 	c_vel_x = charge_v * -image_xscale;// Tutaj to moja wina trochę wszystkie nasze astey są obrócone w lewo a tbh powinny być w prawo dlatego jest tu ten minus
-	show_debug_message("CHARGE");
 }

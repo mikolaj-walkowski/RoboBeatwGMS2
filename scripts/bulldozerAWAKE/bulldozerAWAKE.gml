@@ -10,5 +10,4 @@ function bulldozerAWAKE(){
 		else
 			movment = bulldozerState.CHASE;
 	}
-	show_debug_message("AWAKE");
 }

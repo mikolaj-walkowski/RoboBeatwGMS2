@@ -13,5 +13,4 @@ function bulldozerCHASE(){
 			
 		}
 	}
-	show_debug_message("CHASE");
 }
