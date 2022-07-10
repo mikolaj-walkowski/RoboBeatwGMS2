@@ -5,8 +5,12 @@ function bulldozerASLEEP(){
 	{
 		var dx = x - global.player.x;
 		var dy = y - global.player.y;
-		var distance = sqrt((dx * dx) + (dy * dy)); // Teraz budzisz go w okręgu co moze być problemem (buldozer jest na platformie na d nami )
-		if(sign(dx) * image_xscale > 0 && distance <= chargeRange && abs(dy) < 100){ //jeżeli chodzi o ustawianie kierunku to sign jest według mnie jedną z lepszych metod
+		if(sign(dx) * image_xscale > 0 && abs(dx) <= chargeRange && abs(dy) < 64){ //jeżeli chodzi o ustawianie kierunku to sign jest według mnie jedną z lepszych metod
+			movment = bulldozerState.AWAKE;
+			return;
+		}
+		if(sign(dx) * image_xscale < 0 && abs(dy) <= chargeBlindSpot && abs(dy) < 64)
+		{
 			movment = bulldozerState.AWAKE;
 			return;
 		}
