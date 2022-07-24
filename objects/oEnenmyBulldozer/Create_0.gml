@@ -5,8 +5,8 @@
 event_inherited();
 
 current_state = f_gravity;
-top_v_x = 150;
-charge_v = 300;
+top_v_x = 225;
+charge_v = 450;
 
 hp = 7;
 outOfComission = false;

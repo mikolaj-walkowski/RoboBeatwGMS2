@@ -7,7 +7,7 @@ function bulldozerCHARGE(){
 		chargeStartX = x;
 		chargeStartSet = true;
 	}
-	if(abs(x - chargeStartX) >= chargeRange || c_vel_x == 0)
+	if(abs(x - chargeStartX) >= chargeRange * 1.2 || c_vel_x == 0)
 	{
 		c_vel_x = 0;
 		chargeStartSet = false;

@@ -9,7 +9,7 @@ function bulldozerASLEEP(){
 			movment = bulldozerState.AWAKE;
 			return;
 		}
-		if(sign(dx) * image_xscale < 0 && abs(dy) <= chargeBlindSpot && abs(dy) < 64)
+		if(sign(dx) * image_xscale < 0 && abs(dx) <= chargeBlindSpot && abs(dy) < 64)
 		{
 			movment = bulldozerState.AWAKE;
 			return;
